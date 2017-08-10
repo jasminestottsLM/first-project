@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.models.Adder;
+import com.example.demo.models.Subtractor;
 import com.example.demo.models.Whisperer;
 import com.example.demo.models.Yeller;
 
@@ -72,5 +73,14 @@ public class HelloWorldController {
 		model.addAttribute("sum", result);
 		return "helloworld/sum-result";
 	}
+
+	@PostMapping("subtractor")
+	public String subtractTwoNumbers(@RequestParam(name="left") int first, @RequestParam(name="right") double second, Model model) {
+		Subtractor subtractor = new Subtractor(first, second);
+		double difference = subtractor.subtract();
+		model.addAttribute("difference", difference);
+		return "helloworld/difference-result";
+	}
+	
 	
 }
