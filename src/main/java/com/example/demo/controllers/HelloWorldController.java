@@ -62,25 +62,5 @@ public class HelloWorldController {
 		return mv;
 	}
 	
-	
-	@PostMapping("adder")
-	public String addTwoNumbers(@RequestParam(name="left") int first, @RequestParam(name="right") double second, Model model) {
-		//demonstrates aliasing- request a variable named "left" and store it in an Integer named "first"
-		Adder adder = new Adder(first, second);
-//		adder.sum = 17;  
-//   this would be bad!  Don't do this!
-		double result = adder.calculate();
-		model.addAttribute("sum", result);
-		return "helloworld/sum-result";
-	}
 
-	@PostMapping("subtractor")
-	public String subtractTwoNumbers(@RequestParam(name="left") int first, @RequestParam(name="right") double second, Model model) {
-		Subtractor subtractor = new Subtractor(first, second);
-		double difference = subtractor.subtract();
-		model.addAttribute("difference", difference);
-		return "helloworld/difference-result";
-	}
-	
-	
 }
