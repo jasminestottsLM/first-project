@@ -30,11 +30,8 @@ public class MathsController {
 
 
 	@GetMapping("adder")
-	public String addTwoNumbers(Model model) {
-		Adder adder = new Adder(0, 0);
-		double result = adder.calculate();
-		model.addAttribute("sum", result);
-		return "helloworld/sum-result";
+	public String noAddParams() {
+		return "helloworld/maths";
 	}
 
 	
@@ -49,12 +46,9 @@ public class MathsController {
 	
 
 	@GetMapping("subtractor")
-	public String subtractTwoNumbers(Model model) {
-		Subtractor subtractor = new Subtractor(0, 0);
-		double difference = subtractor.subtract();
-		model.addAttribute("difference", difference);
-		return "helloworld/difference-result";
+	public String noSubParams() {
+		return "helloworld/maths";
 	}
-
+	
 
 }
